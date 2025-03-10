@@ -63,17 +63,17 @@ for i in range(loop_size):
     if symbol_size == 0 : 
         if "symbol" in pick_list:
             pick_list.remove("symbol")
-    pick = pick_list[rn.randint(0,len(pick_list)-1)]
+    pick = rn.choice(pick_list)   #pick_list[rn.randint(0,len(pick_list)-1)]
     match pick:
         case "letter":
             if users_choise_contain_cap == 1:
                 match rn.randint(0,1):
                     case 0:
-                        generated_pass.append(cap_letter_list.pop(rn.randint(0,len(cap_letter_list)-1)))
+                        generated_pass.append(rn.choice(cap_letter_list))    #append(cap_letter_list.pop(rn.randint(0,len(cap_letter_list)-1)))
                     case 1:
-                        generated_pass.append(letter_list.pop(rn.randint(0,len(letter_list)-1)))
+                        generated_pass.append(rn.choice(letter_list))        #.append(letter_list.pop(rn.randint(0,len(letter_list)-1)))
             else:
-                generated_pass.append(letter_list.pop(rn.randint(0,len(letter_list)-1)))
+                generated_pass.append(rn.choice(letter_list))                #.append(letter_list.pop(rn.randint(0,len(letter_list)-1)))
             letter_size-=1
         case "number":
             generated_pass.append(numbers.pop(rn.randint(0,len(numbers)-1)))
